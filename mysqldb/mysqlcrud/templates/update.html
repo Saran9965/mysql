@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update</title>
+    {% load static %}
+    <link rel="stylesheet" href="{%static 'bootstrap/css/bootstrap.min.css'%}">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="col-md-offset-4 col-md-4">
+            <form action="/updateData/{{data.id}}" method="POST" autocomplete="off">
+                    {% csrf_token %}
+                <h3 class="page-header text-primary text-center">Registration</h3>
+                <div class="form-group">
+                    <label>name</label>
+                    <input type="text" class="form-control" value="{{data.Name}}" name="name">
+                </div>
+                <div class="form-group">
+                    <label>age</label>
+                    <input type="number" class="form-control" value="{{data.Age}}" name="age">
+                </div>
+                <div class="form-group">
+                    <label>address</label>
+                    <input type="text" class="form-control" value="{{data.Address}}" name="address">
+                </div>
+                <div class="form-group">
+                    <label>mail</label>
+                    <input type="email" class="form-control" value="{{data.Email}}" name="email">
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-primary btn-block">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+{% block content %}
+{%load crispy_forms_tags%}
+<div class="container-fluid" style="margin-top:50px;">        <!-- fluid use to remove space -->
+    <div class="col-md-offset-4 col-md-4">
+        <h3 class="page-header text-primary text-center"><i class="fa fa-users"> Registration</i></h3>
+        {{ form|crispy }}
+        <input type="submit" class="btn btn-primary btn-block" value="Register">
+    </div>
+</div>
+
+{% endblock %}
