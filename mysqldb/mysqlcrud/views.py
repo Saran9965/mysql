@@ -43,3 +43,9 @@ def update(req,id):
         messages.success(req,'Update sucessfully completed')
         return redirect('Home')
     return render(req,'update.html',{'data':data})
+
+def delete(req,id):
+    data=registerform.objects.get(id=id)
+    data.delete()
+    messages.error(req,'Delete sucessfully completed')
+    return redirect('Home')

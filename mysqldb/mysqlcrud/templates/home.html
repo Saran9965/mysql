@@ -11,9 +11,16 @@
                 text-align: center;
             }
         </style>
+        <div class="col-md-6 pull-right">
+            <table class="table">
+                <tr>
+                <th><input type="text" name="search" id="search" placeholder="Search" class="form-control"></th>
+                <th><a class="btn btn-success btn-block"href="insert/">Insert</a><br><br></th>
+            </tr>
+            </table>
+        </div>
         
-        
-        <a class="btn btn-success btn-block"href="insert/">Insert</a><br>
+        <!-- <a class="btn btn-success btn-block"href="insert/">Insert</a><br> -->
         {% if messages %}
         {% for message in messages %}
         {% if messages.tags == 'error'%}
@@ -37,10 +44,11 @@
                 <th>Contact</th>
                 <th>Email</th>
                 <th>Update</th>
+                <th>Delete</th>
             </tr>
         </thead>
         {% for mydata in data %}
-        <tbody>
+        <tbody id="mytable">
             <tr>
                 <td>{{forloop.counter}}</td>
                 <td>{{mydata.Name}}</td>
@@ -49,10 +57,21 @@
                 <td>{{mydata.Contact}}</td>
                 <td>{{mydata.Email}}</td>
                 <td class="center"><a class="btn btn-primary" href="update/{{mydata.id}}">Update</a></td>
+                <td class="center"><a class="btn btn-danger" href="delete/{{mydata.id}}">Delete</a></td>
             </tr>
         </tbody>
         {% endfor %}
     </table>
     </div>
 </div>
+<script>
+    $("document").ready(function(){
+        $('#search').keyup(function(){
+            var value=$(this).val().toLowerCase()
+            $('#mytable tr').filter(function(){
+            $(this).toggle($(this).text().toLowerCase().indexOf(value)>-1);
+            });
+        });
+    });
+</script>
 {% endblock %}
