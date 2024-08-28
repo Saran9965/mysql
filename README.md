@@ -1,1 +1,1 @@
-<h2>Django using Mysql(CRUD) completed</h2>
+<h2>Django using Mysql(CRUD) Operation</h2>
